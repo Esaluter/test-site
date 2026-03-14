@@ -1,65 +1,69 @@
-body {
+:root{
+color:white;text-decoration:none;transition:.25s ease
+}
+.social:hover{transform:translateY(-3px);background:rgba(255,255,255,.14)}
 
-font-family: Arial, sans-serif;
-margin: 0;
-background: #f5f7fb;
-color: #333;
+.section{margin-top:24px}
+.section-card{padding:28px}
+.section-title{font-size:clamp(28px,4vw,40px);margin:0 0 18px}
 
+.projects-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px
 }
 
-header {
-
-background: #1f2937;
-color: white;
-text-align: center;
-padding: 80px 20px;
-
+.project-card{
+padding:20px;
+transition:transform .25s ease, background .25s ease, border-color .25s ease;
+transform-style:preserve-3d;
+background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.07));
 }
 
-header h1 {
-
-font-size: 48px;
-margin-bottom: 10px;
-
+.project-card::before{
+content:"";
+position:absolute;
+inset:0;
+border-radius:inherit;
+background:radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,.18), transparent 40%);
+opacity:0;
+transition:opacity .25s ease;
+pointer-events:none;
 }
 
-section {
+.project-card:hover::before{opacity:1}
+.project-card:hover{background:var(--glass-2);border-color:rgba(255,255,255,.22)}
 
-max-width: 900px;
-margin: auto;
-padding: 40px 20px;
+.project-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
 
+.icon-badge{
+width:40px;height:40px;border-radius:12px;
+display:flex;align-items:center;justify-content:center;
+background:rgba(255,255,255,.1)
 }
 
-h2 {
+.tags{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}
 
-margin-bottom: 20px;
-font-size: 28px;
-
+.tag{
+padding:6px 10px;
+border-radius:20px;
+background:rgba(255,255,255,.1);
+font-size:12px
 }
 
-.project {
+.muted{color:var(--muted)}
 
-background: white;
-padding: 20px;
-margin-bottom: 20px;
-border-radius: 10px;
-box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease, transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
 
+footer{margin:40px 0;text-align:center}
+.footer-card{padding:20px}
+
+@media (max-width: 860px){
+.hero,.projects-grid{grid-template-columns:1fr}
 }
 
-.contacts a {
-
-color: #2563eb;
-text-decoration: none;
-
-}
-
-footer {
-
-text-align: center;
-padding: 30px;
-background: #111827;
-color: white;
-
+@media (max-width: 640px){
+.nav-wrap{flex-direction:column;align-items:flex-start}
+.hero-main,.hero-side,.section-card{padding:22px}
 }
