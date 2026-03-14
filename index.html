@@ -1,51 +1,126 @@
 <!DOCTYPE html>
+<html lang="ru">
 
-</section>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-</main>
+  <title>Жека — Senior Analyst</title>
 
-<footer class="container reveal">
+  <!-- шрифт -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-<div class="footer-card glass">
+  <!-- иконки -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-<p>© 2026 Жека</p>
+  <!-- стили -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav class="container glass nav">
+
+<div class="brand">
+<i class="fa-solid fa-chart-line"></i>
+<span>Жека / Analyst</span>
+</div>
+
+<div class="nav-links">
+<a href="#about">Обо мне</a>
+<a href="#projects">Проекты</a>
+<a href="#contacts">Контакты</a>
+</div>
+
+</nav>
+
+<header class="container hero">
+
+<div class="hero-left glass">
+
+<p class="tag">Data • Analytics • Experiments</p>
+
+<h1>Строю решения на данных</h1>
+
+<p class="lead">
+Старший аналитик. Работаю с SQL, A/B тестами,
+продуктовыми метриками и дашбордами.
+</p>
+
+<a class="btn" href="#projects">Посмотреть проекты</a>
 
 </div>
 
+<div class="hero-right glass">
+
+<div class="avatar">
+<i class="fa-solid fa-user"></i>
+</div>
+
+<h3>Жека</h3>
+
+<p class="muted">
+Senior Analyst
+</p>
+
+<div class="socials">
+
+<a href="https://github.com">
+<i class="fa-brands fa-github"></i>
+</a>
+
+<a href="https://t.me">
+<i class="fa-brands fa-telegram"></i>
+</a>
+
+<a href="mailto:your@email.com">
+<i class="fa-regular fa-envelope"></i>
+</a>
+
+</div>
+
+</div>
+
+</header>
+
+<section id="projects" class="container">
+
+<h2>Проекты</h2>
+
+<div class="projects">
+
+<div class="card glass">
+
+<h3>Анализ пользовательских сессий</h3>
+
+<p class="muted">
+Исследование поведения пользователей приложения.
+</p>
+
+</div>
+
+<div class="card glass">
+
+<h3>A/B тестирование</h3>
+
+<p class="muted">
+Проверка продуктовых гипотез.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<footer class="container footer">
+
+© 2026 Жека
+
 </footer>
 
-<script>
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    }
-  });
-}, { threshold: 0.1 });
-
-document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
-
-const cards = document.querySelectorAll('.project-card');
-
-cards.forEach(card => {
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const rotateX = -((y - centerY) / 18);
-    const rotateY = (x - centerX) / 18;
-
-    card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
-    card.style.setProperty('--mx', `${x}px`);
-    card.style.setProperty('--my', `${y}px`);
-  });
-
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0px)';
-  });
-});
-</script>
 </body>
 </html>
